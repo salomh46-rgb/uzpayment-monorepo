@@ -1,0 +1,27 @@
+{
+  "name": "uzpayment-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Universal Fintech Payment SDK for Uzbekistan (Click, Payme, Uzum, Paynet) in Python and TypeScript",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "npm run test:node && npm run test:python",
+    "test:node": "npm --prefix packages/uzpayment-node test",
+    "test:python": "cd packages/uzpayment-python && pytest tests -v",
+    "build:node": "npm --prefix packages/uzpayment-node run build"
+  },
+  "keywords": [
+    "click",
+    "payme",
+    "uzum",
+    "paynet",
+    "payments",
+    "uzbekistan",
+    "sdk",
+    "monorepo"
+  ],
+  "author": "Javohirbek Asqarov (Jasper)",
+  "license": "MIT"
+}

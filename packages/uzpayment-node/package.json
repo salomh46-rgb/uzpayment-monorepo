@@ -1,0 +1,43 @@
+{
+  "name": "@javohirbek3302/uzpayment-sdk",
+  "version": "1.0.0",
+  "description": "Universal Multi-Provider Payment Gateway SDK for Uzbekistan (Click, Payme, Uzum Bank, Paynet)",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test"
+  },
+  "keywords": [
+    "click",
+    "payme",
+    "uzum",
+    "paynet",
+    "uzbekistan",
+    "payment",
+    "sdk",
+    "fintech",
+    "gateway",
+    "uzs"
+  ],
+  "author": "Javohirbek Asqarov (Jasper) <salomh46@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salomh46-rgb/uzpayment-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/salomh46-rgb/uzpayment-sdk/issues"
+  },
+  "homepage": "https://github.com/salomh46-rgb/uzpayment-sdk#readme",
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "typescript": "^7.0.2"
+  }
+}
