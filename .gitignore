@@ -1,0 +1,15 @@
+﻿# Dependencies
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+
+# Secrets
+.env
+*.env
