@@ -8,10 +8,11 @@ from .providers.payme import PaymeProvider
 from .providers.click import ClickProvider
 from .providers.uzum import UzumProvider
 from .providers.paynet import PaynetProvider
+from .ofd import OfdItem, OfdFiscalReceipt
 from typing import Optional, Dict, Any
 
-__version__ = "1.0.0"
-__author__ = "Jasper (salomh46-rgb)"
+__version__ = "2.0.0"
+__author__ = "Javohirbek Asqarov (Jasper)"
 
 class UzPayment:
     """

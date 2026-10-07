@@ -36,6 +36,21 @@ export interface CreateInvoiceOptions {
   description?: string;
 }
 
+export interface OfdItem {
+  name: string;        // Tovar yoki xizmat nomi
+  spic: string;        // MXIK / IKPU 17-xonali identifikatsiya kodi
+  packageCode: string; // O'lchov birligi kodi (masalan, '796')
+  price: number;       // Tiyinlarda (1 UZS = 100 tiyin)
+  count?: number;      // Soni (default: 1)
+  vatPercent?: number; // QQS (12 yoki 0)
+}
+
+export interface OfdFiscalReceipt {
+  orderId: string;
+  items: OfdItem[];
+  clientPhone?: string;
+}
+
 export class UzPayment {
   private config: UzPaymentOptions;
 
@@ -112,6 +127,30 @@ export class UzPayment {
     const credentials = Buffer.from(authHeader.replace('Basic ', ''), 'base64').toString('utf-8');
     const [login, key] = credentials.split(':');
     return login === 'Paycom' && key === this.config.payme.secretKey;
+  }
+
+  /**
+   * Generates Soliq OFD Fiscal receipt payload for Payme JSON-RPC
+   */
+  public createPaymeFiscalDetail(receipt: OfdFiscalReceipt) {
+    return {
+      receipt_type: 0,
+      items: receipt.items.map(item => {
+        const count = item.count || 1;
+        const total = item.price * count;
+        const vat = (item.vatPercent && item.vatPercent > 0) ? Math.round(total * item.vatPercent / (100 + item.vatPercent)) : 0;
+        return {
+          title: item.name,
+          price: item.price,
+          count: count,
+          code: item.spic,
+          units: Number(item.packageCode),
+          vat_percent: item.vatPercent || 12,
+          package_code: item.packageCode,
+          vat: vat
+        };
+      })
+    };
   }
 }
 
