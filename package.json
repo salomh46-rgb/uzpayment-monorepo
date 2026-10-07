@@ -9,7 +9,7 @@
   "scripts": {
     "test": "npm run test:node && npm run test:python",
     "test:node": "npm --prefix packages/uzpayment-node test",
-    "test:python": "cd packages/uzpayment-python && pytest tests -v",
+    "test:python": "python -m pytest packages/uzpayment-python/tests -v",
     "build:node": "npm --prefix packages/uzpayment-node run build"
   },
   "keywords": [
